@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.button {
+  padding: 5px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(232, 232, 232);
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: 6px;
+  box-shadow: 5px 8px 15px #666666, -14px -14px 28px #ffffff;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+.good {
+  background-color: rgba(28, 162, 99, 0.8);
+}
+
+.neutral {
+  background-color: rgba(19, 129, 197, 0.8);
+}
+
+.bad {
+  background-color: rgba(241, 66, 101, 0.8);
+}

@@ -1,0 +1,13 @@
+.statistic__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding: 30px 75px;
+}
+
+.item {
+  font-size: 22px;
+  font-weight: 600;
+}
