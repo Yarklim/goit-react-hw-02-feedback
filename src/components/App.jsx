@@ -12,16 +12,8 @@ class App extends Component {
     bad: 0,
   };
 
-  goodButtonClick = () => {
-    this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-
-  neutralButtonClick = () => {
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  badButtonClick = () => {
-    this.setState(prevState => ({ bad: prevState.bad + 1 }));
+  onButtonClick = state => {
+    this.setState(prevState => ({ [state]: prevState[state] + 1 }));
   };
 
   sumTotalButtonClick = () => {
@@ -42,9 +34,8 @@ class App extends Component {
       <div className={s.wrapper}>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            goodButtonClick={this.goodButtonClick}
-            neutralButtonClick={this.neutralButtonClick}
-            badButtonClick={this.badButtonClick}
+            options={Object.keys(this.state)}
+            onButtonClick={this.onButtonClick}
           />
         </Section>
         <Section title="Statistic">

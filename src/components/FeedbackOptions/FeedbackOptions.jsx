@@ -1,31 +1,26 @@
 import PropTypes from 'prop-types';
 import s from './FeedbackOptions.module.scss';
 
-export const FeedbackOptions = ({
-  goodButtonClick,
-  neutralButtonClick,
-  badButtonClick,
-}) => {
+export const FeedbackOptions = ({ options, onButtonClick }) => {
   return (
     <div className={s.wrapper}>
-      <button onClick={goodButtonClick} className={`${s.button} ${s.good}`}>
-        Good
-      </button>
-      <button
-        onClick={neutralButtonClick}
-        className={`${s.button} ${s.neutral}`}
-      >
-        Neutral
-      </button>
-      <button onClick={badButtonClick} className={`${s.button} ${s.bad}`}>
-        Bad
-      </button>
+      {options.map(option => {
+        return (
+          <button
+            type="button"
+            onClick={() => onButtonClick(option)}
+            key={option}
+            className={`${s.button} ${s[option]}`}
+          >
+            {option[0].toUpperCase() + option.slice(1)}
+          </button>
+        );
+      })}
     </div>
   );
 };
 
 FeedbackOptions.propTypes = {
-  goodButtonClick: PropTypes.func.isRequired,
-  neutralButtonClick: PropTypes.func.isRequired,
-  badButtonClick: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onButtonClick: PropTypes.func.isRequired,
 };
